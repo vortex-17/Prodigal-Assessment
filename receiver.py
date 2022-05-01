@@ -22,7 +22,7 @@ def main():
     channel = connection.channel()
 
     channel.queue_declare(queue='mongo_insert')
-    # mongo_url = 'mongodb+srv://vortex-17:Vivek007@cluster0.yijap.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    # mongo_url = 'mongodb+srv://vortex-17:<password>@cluster0.yijap.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     mongo_url = 'mongodb://127.0.0.1:27017/'
     dbname = get_database(mongo_url, "test_prodigal")
     mf_data_collection = dbname["MUTUAL_FUND_DATA"]
