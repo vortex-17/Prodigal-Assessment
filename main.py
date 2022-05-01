@@ -134,7 +134,9 @@ if __name__ == '__main__':
     if getattr(arguments, "initial_fetch"):
         inital_fetch()
 
-    schedule.every().day.at("01:00").do(daily_fetch,'It is 01:00')
+    # schedule.every().day.at("01:00").do(daily_fetch,'It is 01:00')
 
-    while True:
-        schedule.run_pending()
+    # while True:
+    #     schedule.run_pending()
+
+    daily_fetch()

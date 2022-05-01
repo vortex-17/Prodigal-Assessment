@@ -12,6 +12,19 @@ Design an ingestion pipeline to fetch Mutual Fund data from the AMFI website, mo
 6. Secondary indexes created for better query performance
 7. Normalise scheme_name for faster and better queries
 
+### Flow
+
+1. First a pool of multiple processes is created if --inital-fetch=True and each process then starts to crawl the website from a date range. If inital-fetch = False, then no pool is created.
+2. This data is then fetched and cleaned up.
+3. Cleaned up data is sent to a RabbitMQ link
+4. Receiver.py is actively consuming the queue and inserts the data into MongoDB when it gets it.
+
+### Tools and frameworks
+
+1. MongoDB
+2. RabbitMQ
+3. Multiprocessing
+
 ### Steps to Run Code
 
 1. Download RabbitMQ docker image and run the command ```docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management```
